@@ -1,0 +1,8 @@
+osrm-routed --max-table-size 10000 brazil-latest.osrm
+
+
+
+osrm-routed --max-matching-size 1000 --max-table-size 1000 --max-viaroute-size 1000 --algorithm mld /data/brazil-latest.osrm
+
+
+

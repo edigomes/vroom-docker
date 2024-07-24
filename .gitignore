@@ -1,0 +1,5 @@
+*conf/
+docker-compose.yml
+.idea
+*data/
+.github
