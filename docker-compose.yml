@@ -1,0 +1,22 @@
+version: "2.4"
+services:
+  vroom:
+    image: vroomvrp/vroom-docker:v1.14.0-rc.2
+    container_name: vroom
+    ports:
+      - 4000:4000
+    volumes:
+      - ./conf/:/conf
+    environment:
+      - VROOM_ROUTER=osrm  # router to use, osrm, valhalla or ors
+    depends_on:
+      - osrm
+  osrm:
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    container_name: osrm
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - ./data:/data
+    command: "osrm-routed --max-matching-size 1000 --max-table-size 1000 --max-viaroute-size 1000 --algorithm mld /data/brazil-latest.osrm"
