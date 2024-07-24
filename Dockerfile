@@ -47,7 +47,7 @@ RUN apt-get update > /dev/null && \
     # To share the config.yml & access.log file with the host
     mkdir /conf
 
-COPY ./conf /conf
+#COPY ./conf /conf
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 ENV VROOM_DOCKER=osrm \
